@@ -8,7 +8,7 @@ $.fn.jsRapCalendar = function(options){
 return this.each(function(){
 	this.opt = $.extend({
 		week:0,
-		daysName:['Sun', 'Mon', 'Tue','Wed', 'Thu', 'Fri','Sat'],
+		daysName:['Su','Ma','Tu','We','Th','Fr','Sa'],
 		monthsNames:['January', 'February', 'March', 'April', 'May', 'Jun', 'July', 'August', 'September', 'October', 'November', 'December'],
 		onClick:null
 	},options);

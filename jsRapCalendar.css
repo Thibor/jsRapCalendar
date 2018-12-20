@@ -1,13 +1,14 @@
 .rapCalendar{
-	box-sizing: border-box;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
 }
 .rapCalendar tbody td{
-	padding: 4px 2px;
 	text-align: center;
 	cursor:pointer;
 	border: 1px solid transparent;
 	width:24px;
 	height:24px;
+	border-radius:50%;
 }
 .rapCalendar tbody td:hover{
 	border-color: black;
