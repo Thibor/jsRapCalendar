@@ -1,0 +1,30 @@
+.rapCalendar{
+	box-sizing: border-box;
+}
+.rapCalendar tbody td{
+	padding: 4px 2px;
+	text-align: center;
+	cursor:pointer;
+	border: 1px solid transparent;
+	width:24px;
+	height:24px;
+}
+.rapCalendar tbody td:hover{
+	border-color: black;
+}
+.rapCalendar .selected{
+	background-color:black;
+	color:white;
+}
+.rapCalendar .larr{
+	float:left;
+}
+.rapCalendar .larr:before{
+	content:"◄";
+}
+.rapCalendar .rarr{
+	float:right;
+}
+.rapCalendar .rarr:before{
+	content:"►";
+}

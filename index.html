@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Demo</title>
+<link rel="stylesheet" href="jsRapCalendar.css" />
+<link rel="stylesheet" href="index.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="jsRapCalendar.js"></script>
+<script>
+
+$(document).ready(function(){
+
+$('#demo1').jsRapCalendar();
+
+$('#demo2').jsRapCalendar({
+	week:6,
+	onClick:function(y,m,d){
+		alert(y + '-' + m + '-' + d);
+	}
+});
+
+});
+</script>
+</head>
+<body>
+<div id="divMain">
+<div id="divGitHub">
+<div id="GitHub" onclick="location.href='https://github.com/Thibor/jsRapCalendar'"></div>
+</div>
+<div id="demo1" ></div>
+<div id="demo2" ></div>
+</div>
+</body>
+</html>
