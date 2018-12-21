@@ -7,6 +7,7 @@ $.fn.jsRapCalendar = function(options){
 	
 return this.each(function(){
 	this.opt = $.extend({
+		enabled:true,
 		showCaption:true,
 		showArrows:true,
 		week:0,
@@ -76,10 +77,12 @@ return this.each(function(){
 			if($(tr).children().length > 6)
 				tr = $('<tr>').appendTo(tbody);
 			let d = $('<td>').text(n).appendTo(tr);
+			if(this.opt.enabled)
+				d.addClass('selectable');
 			if((this.selY == this.curYear) && (this.selM == this.curMonth) && (this.selD == n))
 				$(d).addClass('selected');
 		}
-		$('tbody td',this).bind({
+		$('.selectable',this).bind({
 			click:function(e){
 				$('td',base).removeClass('selected');
 				$(this).addClass('selected');

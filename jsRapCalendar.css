@@ -21,18 +21,19 @@
 }
 .rapCalendar tbody td{
 	text-align: center;
-	cursor:pointer;
 	border: 1px solid transparent;
 	width:24px;
 	height:24px;
 }
-.rapCalendar tbody td:hover,
+.rapCalendar .selectable:hover,
 .rapCalendar .selected{
 	border-color:black;
 	background-color:#aa3;
 	border-radius:8px;
+	cursor:pointer;
 }
 .rapCalendar .larr{
+	cursor:pointer;
 	float:left;
 }
 .rapCalendar .larr:before{
@@ -42,5 +43,6 @@
 	float:right;
 }
 .rapCalendar .rarr:before{
+	cursor:pointer;
 	content:"►";
 }

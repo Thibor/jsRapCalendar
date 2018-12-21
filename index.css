@@ -39,7 +39,8 @@ pointer-events:auto;
 	background-color:#f00;
 }
 #demo1,
-#demo2{
+#demo2,
+#demo3{
 	display:inline;
 	float:left;
 	margin:64px;
