@@ -13,6 +13,11 @@
 }
 .rapCalendar table{
 	margin:0px auto;
+	border-spacing: 0px;
+    border-collapse:separate;
+}
+.rapCalendar thead{
+	color:#aa3;
 }
 .rapCalendar tbody td{
 	text-align: center;
@@ -20,14 +25,12 @@
 	border: 1px solid transparent;
 	width:24px;
 	height:24px;
-	border-radius:50%;
 }
 .rapCalendar tbody td:hover,
 .rapCalendar .selected{
 	border-color:black;
 	background-color:#aa3;
-	color:black;
-	text-shadow:none;
+	border-radius:8px;
 }
 .rapCalendar .larr{
 	float:left;

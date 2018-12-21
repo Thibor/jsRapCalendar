@@ -34,7 +34,8 @@ return this.each(function(){
 		}
 	}else
 		this.caption = false;
-	let dayNames = $('<tr>').appendTo(table);
+	let head = $('<thead>').appendTo(table);
+	let dayNames = $('<tr>').appendTo(head);
 	for(let n = 0;n < 7;n++)
 		$('<th>').text(this.opt.daysName[(n + 7 - this.opt.week) % 7]).appendTo(dayNames);
 	let tbody = $('<tbody>').appendTo(table);
