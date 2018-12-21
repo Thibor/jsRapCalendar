@@ -7,6 +7,8 @@ $.fn.jsRapCalendar = function(options){
 	
 return this.each(function(){
 	this.opt = $.extend({
+		showCaption:true,
+		showArrows:true,
 		week:0,
 		daysName:['Su','Ma','Tu','We','Th','Fr','Sa'],
 		monthsNames:['January', 'February', 'March', 'April', 'May', 'Jun', 'July', 'August', 'September', 'October', 'November', 'December'],
@@ -23,10 +25,15 @@ return this.each(function(){
 	this.selD = this.curDay;
 	$(this).addClass('rapCalendar');
 	let table = $('<table>').appendTo($(this));
-	this.caption = $('<caption>').appendTo(table);
-	this.cap = $('<span>').appendTo(this.caption);
-	this.larr = $('<div>').addClass('larr').appendTo(this.caption);
-	this.rarr = $('<div>').addClass('rarr').appendTo(this.caption);
+	if(this.opt.showCaption){
+		this.caption = $('<caption>').appendTo(table);
+		this.cap = $('<span>').appendTo(this.caption);
+		if(this.opt.showArrows){
+			this.larr = $('<div>').addClass('larr').appendTo(this.caption);
+			this.rarr = $('<div>').addClass('rarr').appendTo(this.caption);
+		}
+	}else
+		this.caption = false;
 	let dayNames = $('<tr>').appendTo(table);
 	for(let n = 0;n < 7;n++)
 		$('<th>').text(this.opt.daysName[(n + 7 - this.opt.week) % 7]).appendTo(dayNames);
@@ -55,7 +62,8 @@ return this.each(function(){
 			this.curMonth = 0;
 			this.curYear++;
 		}
-		$(this.cap).text(this.opt.monthsNames[this.curMonth] + ' ' + this.curYear);
+		if(this.caption)
+			$(this.cap).text(this.opt.monthsNames[this.curMonth] + ' ' + this.curYear);
 		$(tbody).empty();
 		let dim = daysInMonth(this.curYear,this.curMonth + 1);
 		let tr = $('<tr>').appendTo(tbody);
