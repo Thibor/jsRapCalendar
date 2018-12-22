@@ -30,15 +30,18 @@
 	width:24px;
 	height:24px;
 }
-.rapCalendar .selectable:hover,
-.rapCalendar .selected{
+.rapCalendar .selectable:hover{
 	border-color:black;
 	background-color:#aa3;
 	border-radius:8px;
 	cursor:pointer;
-	color:black;
-	/*text-shadow:-1px 0px white,0px 1px white,1px 0px white,0px -1px white;*/
-	text-shadow:none;
+	font-weight:bold;
+}
+.rapCalendar .selected{
+	border-color:black;
+	background-color:#aa3;
+	border-radius:8px;
+	font-weight:bold;
 }
 .rapCalendar .larr{
 	color:#aa3;

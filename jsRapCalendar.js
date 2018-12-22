@@ -12,16 +12,16 @@ return this.each(function(){
 		showYear:true,
 		showArrows:true,
 		week:0,
+		date:new Date(),
 		daysName:['Su','Ma','Tu','We','Th','Fr','Sa'],
 		monthsNames:['January', 'February', 'March', 'April', 'May', 'Jun', 'July', 'August', 'September', 'October', 'November', 'December'],
 		onClick:null
 	},options);
 	let base = this;
-	let curDate = new Date();
-	this.curYear = curDate.getFullYear();
-	this.curMonth = curDate.getMonth();
-	this.curDay = curDate.getDate();
-	let curWeek = curDate.getDay();
+	this.curYear = this.opt.date.getFullYear();
+	this.curMonth = this.opt.date.getMonth();
+	this.curDay = this.opt.date.getDate();
+	let curWeek = this.opt.date.getDay();
 	this.selY = this.curYear;
 	this.selM = this.curMonth;
 	this.selD = this.curDay;
