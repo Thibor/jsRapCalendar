@@ -9,6 +9,7 @@ return this.each(function(){
 	this.opt = $.extend({
 		enabled:true,
 		showCaption:true,
+		showYear:true,
 		showArrows:true,
 		week:0,
 		daysName:['Su','Ma','Tu','We','Th','Fr','Sa'],
@@ -64,8 +65,12 @@ return this.each(function(){
 			this.curMonth = 0;
 			this.curYear++;
 		}
-		if(this.caption)
-			$(this.cap).text(this.opt.monthsNames[this.curMonth] + ' ' + this.curYear);
+		if(this.caption){
+			let s = this.opt.monthsNames[this.curMonth];
+			if(this.opt.showYear)
+				s += ' ' + this.curYear;
+			$(this.cap).text(s);
+		}
 		$(tbody).empty();
 		let dim = daysInMonth(this.curYear,this.curMonth + 1);
 		let tr = $('<tr>').appendTo(tbody);

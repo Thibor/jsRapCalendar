@@ -16,8 +16,13 @@
 	border-spacing: 0px;
     border-collapse:separate;
 }
+.rapCalendar caption{
+	color:#aa3;
+	font-weight:bold;
+}
 .rapCalendar thead{
 	color:#aa3;
+	text-shadow:-1px 0px black,0px 1px black,1px 0px black,0px -1px black;
 }
 .rapCalendar tbody td{
 	text-align: center;
@@ -31,18 +36,29 @@
 	background-color:#aa3;
 	border-radius:8px;
 	cursor:pointer;
+	color:black;
+	/*text-shadow:-1px 0px white,0px 1px white,1px 0px white,0px -1px white;*/
+	text-shadow:none;
 }
 .rapCalendar .larr{
+	color:#aa3;
 	cursor:pointer;
 	float:left;
 }
 .rapCalendar .larr:before{
 	content:"◄";
 }
+.rapCalendar .larr:hover{
+	color:white;
+}
 .rapCalendar .rarr{
+	color:#aa3;
+	cursor:pointer;
 	float:right;
 }
 .rapCalendar .rarr:before{
-	cursor:pointer;
 	content:"►";
+}
+.rapCalendar .rarr:hover{
+	color:white;
 }
