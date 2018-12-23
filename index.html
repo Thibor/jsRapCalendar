@@ -14,15 +14,17 @@ $(document).ready(function(){
 $('#demo1').jsRapCalendar();
 
 $('#demo2').jsRapCalendar({
-	enabled:false
+	minDate:0,
+	enabled:false,
+	showArrows:false,
+	showYear:false
 });
 
 $('#demo3').jsRapCalendar({
 	week:6,
-	showArrows:false,
-	showYear:false,
+	minDate:DateToStr(new Date()),
 	onClick:function(y,m,d){
-		alert(y + '-' + m + '-' + d);
+		alert(D3ToStr(y,m,d));
 	}
 });
 

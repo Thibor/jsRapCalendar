@@ -1,5 +1,30 @@
-function daysInMonth(year,month){
+function D3ToStr(y,m,d){
+m++;
+if(m < 10)m = '0' + m;
+if(d < 10)d = '0' + d;
+return y + '-' + m + '-' + d;
+}
+function D3ToDate(y,m,d){
+return new Date(y,m,d,0,0,0,0);	
+}
+function DateToD3(date){
+let y = date.getFullYear();
+let m = date.getMonth();
+let d = date.getDate();
+return {y:y,m:m,d:d};
+}
+function DateToStr(date){
+let d3 = DateToD3(date);
+return D3ToStr(d3.y,d3.m,d3.d);
+}
+function DaysInMonth(year,month){
 return new Date(year, month, 0).getDate();
+}
+function StrToDate(s){
+let y = parseInt(s.substring(0,4),10);	
+let m = parseInt(s.substring(5,7),10);	
+let d = parseInt(s.substring(8,10),10);
+return D3ToDate(y,m - 1,d);
 }
 
 (function($){
@@ -12,15 +37,17 @@ return this.each(function(){
 		showYear:true,
 		showArrows:true,
 		week:0,
+		minDate:'',
 		date:new Date(),
 		daysName:['Su','Ma','Tu','We','Th','Fr','Sa'],
 		monthsNames:['January', 'February', 'March', 'April', 'May', 'Jun', 'July', 'August', 'September', 'October', 'November', 'December'],
 		onClick:null
 	},options);
 	let base = this;
-	this.curYear = this.opt.date.getFullYear();
-	this.curMonth = this.opt.date.getMonth();
-	this.curDay = this.opt.date.getDate();
+	d3 = DateToD3(this.opt.date);
+	this.curYear = d3.y;
+	this.curMonth = d3.m;
+	this.curDay = d3.d;
 	let curWeek = this.opt.date.getDay();
 	this.selY = this.curYear;
 	this.selM = this.curMonth;
@@ -72,7 +99,7 @@ return this.each(function(){
 			$(this.cap).text(s);
 		}
 		$(tbody).empty();
-		let dim = daysInMonth(this.curYear,this.curMonth + 1);
+		let dim = DaysInMonth(this.curYear,this.curMonth + 1);
 		let tr = $('<tr>').appendTo(tbody);
 		let td = null;
 		let fd =  (new Date(this.curYear,this.curMonth,1).getDay()  + this.opt.week) % 7;
@@ -82,20 +109,22 @@ return this.each(function(){
 			if($(tr).children().length > 6)
 				tr = $('<tr>').appendTo(tbody);
 			let d = $('<td>').text(n).appendTo(tr);
-			if(this.opt.enabled)
-				d.addClass('selectable');
+			if(D3ToStr(this.curYear,this.curMonth,n) < this.opt.minDate)
+				d.addClass('calDisable');
+			else if(this.opt.enabled)
+				d.addClass('calSelectable');
 			if((this.selY == this.curYear) && (this.selM == this.curMonth) && (this.selD == n))
-				$(d).addClass('selected');
+				$(d).addClass('calSelected');
 		}
-		$('.selectable',this).bind({
+		$('.calSelectable',this).bind({
 			click:function(e){
-				$('td',base).removeClass('selected');
-				$(this).addClass('selected');
+				$('td',base).removeClass('calSelected');
+				$(this).addClass('calSelected');
 				base.selY = base.curYear;
 				base.selM = base.curMonth;
 				base.selD = $(this).text();
 				if(base.opt.onClick)
-					base.opt.onClick.call(this,base.selY,base.selM + 1,base.selD);
+					base.opt.onClick.call(this,base.selY,base.selM,base.selD);
 			}
 		});
 	}
