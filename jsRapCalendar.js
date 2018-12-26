@@ -31,14 +31,15 @@ return D3ToDate(y,m - 1,d);
 $.fn.jsRapCalendar = function(options){
 	
 return this.each(function(){
+	let d = new Date();
 	this.opt = $.extend({
 		enabled:true,
 		showCaption:true,
 		showYear:true,
 		showArrows:true,
 		week:0,
-		minDate:'',
-		date:new Date(),
+		minDate:DateToStr(d),
+		date:d,
 		daysName:['Su','Ma','Tu','We','Th','Fr','Sa'],
 		monthsNames:['January', 'February', 'March', 'April', 'May', 'Jun', 'July', 'August', 'September', 'October', 'November', 'December'],
 		onClick:null

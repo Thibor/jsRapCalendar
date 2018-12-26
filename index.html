@@ -14,7 +14,6 @@ $(document).ready(function(){
 $('#demo1').jsRapCalendar();
 
 $('#demo2').jsRapCalendar({
-	minDate:0,
 	enabled:false,
 	showArrows:false,
 	showYear:false
@@ -22,7 +21,7 @@ $('#demo2').jsRapCalendar({
 
 $('#demo3').jsRapCalendar({
 	week:6,
-	minDate:DateToStr(new Date()),
+	minDate:0,
 	onClick:function(y,m,d){
 		alert(D3ToStr(y,m,d));
 	}
